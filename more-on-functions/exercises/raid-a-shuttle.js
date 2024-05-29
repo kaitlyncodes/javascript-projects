@@ -24,6 +24,34 @@ let cargoHold = ['meal kits', 'space suits', 'first-aid kit', 'satellite', 'gold
 console.log("Fuel level: " + checkFuel(fuelLevel));
 console.log("Hold status: " + holdStatus(cargoHold));
 
+
+let notSus = function(fuelLevel) {
+    if (checkFuel(fuelLevel) === 'green') {
+       return fuelLevel - 100001;
+    }
+    else if (checkFuel(fuelLevel) === 'yellow') {
+       return fuelLevel - 50001;
+    }
+    else {
+       return fuelLevel;
+    }
+ };
+ 
+ fuelLevel = notSus(fuelLevel);
+
+ let notStealing = function(cargo) {
+let notStealing = cargo.splice(0, 2);
+cargo.push('box', 'hat');
+return notStealing;
+ };
+let irs = function(fuelLevel, cargoHold) {
+let arr = deckMops(itemsInCargo);
+return `Raided ${notSus(fuelLevel)} kg of fuel from the tanks, and stole ${arr[0]} and ${arr[1]} from cargo hold.`
+}
+ let innocentVariable = swipeItems(cargoHold);
+ console.log("Swiped items:", innocentVariable);
+ console.log("Remaining cargo hold:", cargoHold);
+ 
 /* Steal some fuel from the shuttle:
  * /
  
